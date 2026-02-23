@@ -315,39 +315,38 @@ textarea {
 </div>
 
 <script>
-    function submitAudit() {
-      const email = document.getElementById("email").value.trim();
-      const jd = document.getElementById("jd").value.trim();
-      const resume = document.getElementById("resume").value.trim();
-      const location = document.getElementById("location").value.trim();
-    
-      if (!email || !jd || !resume) {
+function submitAudit() {
+    const email = document.getElementById("email").value.trim();
+    const jd = document.getElementById("jd").value.trim();
+    const resume = document.getElementById("resume").value.trim();
+    const location = document.getElementById("location").value.trim();
+
+    if (!email || !jd || !resume) {
         alert("Please complete all required fields.");
         return;
-      }
-    
-      const loader = document.getElementById("loader");
-      loader.style.display = "block";
-      loader.innerText = "Running deep AI analysis...";
-    
-      fetch("https://script.google.com/macros/s/AKfycbxTyq0MsH02MmFaTHopb-lwbEgIiQy_T2LD3KvNIRc2N7uCj6GTnTSG8Nn887UMp5gElw/exec", {
+    }
+
+    const loader = document.getElementById("loader");
+    loader.style.display = "block";
+    loader.innerText = "Running deep AI analysis... ⏳ This may take a few minutes. Please check your email inbox in 2 minutes.";
+
+    fetch("https://script.google.com/macros/s/AKfycby0BwuXpjTtdg_BeMaGY_NqMs-aQKcMn86XwPt48elhU7pZTwSAmthTlHdSQYm3GsP6Gg/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, jd, resume, location })
-      })
-      .then(res => res.json())
-      .then(data => {
+    })
+    .then(res => res.json())
+    .then(data => {
         if (data.status === "success") {
-          loader.innerText = "✅ Audit submitted! Check your email for results.";
+            loader.innerText = "✅ Audit submitted! Check your email for results.";
         } else {
-          loader.innerText = "❌ Error: " + data.message;
+            loader.innerText = "❌ Error: " + data.message;
         }
-      })
-      .catch(err => {
+    })
+    .catch(err => {
         loader.innerText = "❌ Network error: " + err.message;
-      });
-    }
-    </script>
-
+    });
+}
+</script>
 </body>
 </html>
