@@ -337,18 +337,18 @@ function submitAudit() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
   })
-  .then(res => res.json())
+  .then(res => {
+      if (!res.ok) throw new Error(`Server responded with ${res.status}`);
+      return res.json();
+  })
   .then(data => {
-      if (data.status === "success") {
-          loader.innerText = "✅ " + data.message;
-      } else {
-          loader.innerText = "❌ Error: " + data.message;
-      }
+      loader.innerText = data.status === "success" ? `✅ ${data.message}` : `❌ Error: ${data.message}`;
   })
   .catch(err => {
-      loader.innerText = "❌ Network or server error";
+      console.error(err);
+      loader.innerText = "❌ Network or server error. Try again.";
   });
-} // <-- closing brace added
+}
 </script>
 </body>
 </html>
