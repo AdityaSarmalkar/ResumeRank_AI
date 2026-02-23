@@ -330,7 +330,7 @@ function submitAudit() {
     loader.style.display = "block";
     loader.innerText = "Running deep AI analysis... ⏳ This may take a few minutes. Please check your email inbox in 2 minutes.";
 
-    fetch("https://script.google.com/macros/s/AKfycby0BwuXpjTtdg_BeMaGY_NqMs-aQKcMn86XwPt48elhU7pZTwSAmthTlHdSQYm3GsP6Gg/exec", {
+    fetch("hhttps://script.google.com/macros/s/AKfycby0BwuXpjTtdg_BeMaGY_NqMs-aQKcMn86XwPt48elhU7pZTwSAmthTlHdSQYm3GsP6Gg/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, jd, resume, location })
