@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeRank AI | Landing Your Dream Job with AI</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo-wrapper { display: flex; justify-content: center; }
+        .main-logo { width: 300px; height: auto; object-fit: contain; }
+
+        .badge {
+            background: rgba(79, 70, 229, 0.2);
+            color: #818cf8;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-top: -50px; 
+            margin-bottom: 30px; 
+            border: 1px solid rgba(79, 70, 229, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 24px;
+    margin-top: 0;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    
+    /* Standard property for Firefox/Future-proofing */
+    background-clip: text; 
+    
+    /* Vendor prefix for Chrome/Safari/Edge */
+    -webkit-background-clip: text; 
+    
+    /* This makes the text transparent so the background shows through */
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+}
+
+        p.description {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        /* --- THE UPGRADED CTA BUTTON --- */
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), #6366f1);
+            color: white;
+            padding: 18px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 35px -10px rgba(79, 70, 229, 0.6);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 24px;
+            margin-top: 60px;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px; 
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            flex: 1 1 calc(45% - 24px); 
+            min-width: 280px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(79, 70, 229, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .card-icon { color: var(--primary); margin-bottom: 20px; }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+
+        .footer-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+    display: flex;
+    justify-content: center; /* Centers the group */
+    gap: 32px;               /* This creates the "Billion-Dollar" space (2rem) */
+    margin-top: 20px;
+}
+
+.footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    letter-spacing: 0.03em;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+        .status-dot {
+            width: 6px; height: 6px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        @media (max-width: 650px) {
+            .feature-card { flex: 1 1 100%; text-align: center; }
+            .card-icon { margin-inline: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="ResumeRank AI Logo" class="main-logo">
+        </div>
+
+        <span class="badge">POWERED BY GEMINI 3 FLASH</span>
+        
+        <h1>Resume<span style="color: var(--primary); -webkit-text-fill-color: var(--primary);">Rank</span> AI</h1>
+        
+        <p class="description">Stop being invisible to automated filters. Get an instant <span style="color:var(--primary); font-weight: bold;">AI-powered audit</span> to ensure your resume outranks the competition.</p>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+            <a href="Audit.html" class="cta-button">Analyze My Resume →</a>
+            
+            <a href="Scout_loading.html" 
+               class="cta-button" 
+               style="background: transparent; border: 2px solid var(--primary); box-shadow: none;"
+               onmouseover="this.style.backgroundColor='rgba(79, 70, 229, 0.1)'"
+               onmouseout="this.style.backgroundColor='transparent'">
+               Launch Smart Scout
+            </a>
+        </div>
+        
+        <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 15px;">
+            <i data-lucide="shield-check" style="width: 14px; height: 14px; display:inline; vertical-align: middle;"></i> 
+            Currently in <span style="color: #fff; font-weight: 600;">Private Beta</span> — Limited to first 50 audits
+        </p>
+
+        <div class="features">
+            <div class="feature-card">
+                <i data-lucide="target" class="card-icon"></i>
+                <h3>Match Score</h3>
+                <p>Get a precise score from 0-100 based on your skill alignment.</p>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="mail" class="card-icon"></i>
+                <h3>Email Delivery</h3>
+                <p>A full professional report sent to your inbox in seconds.</p>
+            </div>
+            <div class="feature-card" style="flex: 1 1 100%; border-color: rgba(79, 70, 229, 0.3); background: linear-gradient(to bottom right, var(--card-bg), rgba(79, 70, 229, 0.1));">
+                <i data-lucide="globe" class="card-icon"></i>
+                <h3>Global Scout Engine</h3>
+                <p>Our AI doesn't just scan your resume; it hunts for jobs in <b>Pune, Austin, London</b>, and beyond. Get direct-apply links tailored to your DNA.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-status">
+                    <span class="status-dot"></span> 
+                    SYSTEMS OPERATIONAL: GEMINI 3 FLASH
+                </div>
+        
+                <div class="footer-credits">
+                    &copy; 2026 <span style="color: #fff; font-weight: 600;">ResumeRank AI</span>. 
+                    All rights reserved.
+                </div>
+        
+                <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 5px;">
+                    Developed by <span style="color: var(--primary);">Aditya Sarmalkar</span> 
+                    <span style="margin: 0 8px; opacity: 0.3;">|</span> 
+                    v1.0.4-stable
+                </div>
+        
+                <div class="footer-links" style="margin-top: 18px;">
+                    <a href="https://github.com/Wrenchded" target="_blank">GitHub</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
